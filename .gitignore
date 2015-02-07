@@ -4,12 +4,15 @@ bower_components/
 .tmp/
 dist/
 
+#Config details
+src/app/main/constants.js
+
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
 *.iml
 
 ## Directory-based project format:
-.idea/
+.idea
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:

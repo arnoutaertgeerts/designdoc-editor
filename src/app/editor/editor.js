@@ -24,7 +24,5 @@
         }).then(function(data) {
             vm.docs = data;
         })
-
     }
-
 })();
