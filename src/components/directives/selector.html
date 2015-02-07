@@ -1,0 +1,124 @@
+<div class="col-lg-3">
+    <div class="list-group">
+        <a ng-repeat='doc in docs'
+           href="#"
+           class="list-group-item"
+           ng-click="pickDoc(doc)"
+           ng-class="{active: $index == nav.index}"
+                >
+            {{ doc._id }}
+        </a>
+    </div>
+
+</div>
+<div class="col-lg-3" ng-if="showFunctions">
+    <div class="btn btn-success"
+         ng-class="{disabled: !changes[nav.index]}"
+         ng-click="save(docs[nav.index])"
+            >
+        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save {{ docs[nav.index]._id }}
+    </div>
+
+    <div class="spacer20"></div>
+
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-warning"><h4 class="list-group-item-heading">Filters</h4></a>
+
+        <a ng-repeat='(key, value) in doc.filters'
+           href="#"
+           class="list-group-item"
+           ng-click="pickFunction('filters', key)"
+           ng-class="{active: value == docs[nav.index][nav.type][nav.name] && nav.name == key}"
+                >
+            {{ key }}
+
+        </a>
+
+        <a href="#" class="list-group-item">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="New Filter" ng-model='newFilter'>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="addFunction('filters', newFilter)">Create
+                    </button>
+                </span>
+            </div>
+        </a>
+
+    </div>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-warning"><h4 class="list-group-item-heading">Views</h4></a>
+        <a ng-repeat='(key, value) in doc.views'
+           href="#"
+           class="list-group-item"
+           ng-click="pickFunction('views', key)"
+           ng-class="{active: value == docs[nav.index][nav.type][nav.name]}"
+                >
+            {{ key }}
+
+        </a>
+        <a href="#" class="list-group-item">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="New View" ng-model='newView'>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="addFunction('views', newView)">Create
+                    </button>
+                </span>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<div class="col-lg-6" ng-if="showEditor>0">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="{{ nav.name }}" ng-model="data.name">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="changeName(data.name)">Change Name</button>
+            <button class="btn btn-danger" type="button" ng-click="remove()">Delete Function</button>
+        </span>
+    </div>
+
+    <div class="spacer20"></div>
+
+    <div ng-if="nav.type === 'filters'" class="panel panel-default">
+        <div class="panel-body">
+            <div class="spacer20"></div>
+            <section class="editor">
+                <div ui-ace="{
+                    useWrapMode : true,
+                    mode: 'javascript'
+                }" ng-model="docs[nav.index][nav.type][nav.name]"></div>
+            </section>
+        </div>
+    </div>
+
+    <div ng-if="nav.type === 'views'">
+        <div class="panel panel-default">
+            <div class="panel-heading"><div class="panel-title">Map function</div></div>
+
+            <div class="panel-body">
+                <section class="editor">
+                    <div ui-ace="{
+                    useWrapMode : true,
+                    mode: 'javascript'
+                }" ng-model="docs[nav.index][nav.type][nav.name].map"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><div class="panel-title">Reduce function</div></div>
+
+            <div class="panel-body">
+                <section class="editor">
+                    <div ui-ace="{
+                    useWrapMode : true,
+                    mode: 'javascript'
+                }" ng-model="docs[nav.index][nav.type][nav.name].reduce"></div>
+                </section>
+            </div>
+        </div>
+
+
+    </div>
+</div>

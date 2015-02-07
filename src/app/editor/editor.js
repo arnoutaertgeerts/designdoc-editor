@@ -16,9 +16,9 @@
 
     function controller($scope, Model) {
         var vm = this;
-        vm.docs = [];
+        vm.docs = undefined;
 
-        Model('https://housemt.couchappy.com/', '_users').all({
+        Model('https://housemt.couchappy.com/', 'todos').all({
             include_docs: true,
             startkey: '_design/'
         }).then(function(data) {
