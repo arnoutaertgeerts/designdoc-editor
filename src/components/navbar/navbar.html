@@ -1,0 +1,64 @@
+<div ng-controller="NavBarCtrl">
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                    ng-click="menuCollapsed = ! menuCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <small>
+                    <a href="http://github.com/arnoutaertgeerts/designdoc-editor">
+                        Designdoc-Editor
+                    </a>
+                </small>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" collapse="menuCollapsed">
+            <ul class="nav navbar-nav">
+                <li access-level="public" ui-sref-active-eq="active">
+                    <a href ui-sref="home">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li access-level="public" ui-sref-active-eq="active">
+                    <a href ui-sref="docs">
+                        <i class="fa fa-info-circle"></i>
+                        Edit design documents?
+                    </a>
+                </li>
+
+                <li access-level="user" ui-sref-active-eq="active">
+                    <a href ui-sref="admin">
+                        <i class="fa fa-book"></i>
+                        Admin
+                    </a>
+                </li>
+
+                <li access-level="user" ui-sref-active-eq="active">
+                    <a href ui-sref="user">
+                        <i class="fa fa-user"></i>
+                        Profile
+                    </a>
+                </li>
+
+                <li access-level="anon" ui-sref-active-eq="active">
+                    <a href ui-sref="login">
+                        Log in
+                    </a>
+                </li>
+
+                <li access-level="user" ui-sref-active-eq="active">
+                    <a href ui-sref="logout" ng-click="logout()">
+                        Log out
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
