@@ -10,11 +10,20 @@
         .controller('EditorCtrl', controller);
 
     controller.$inject = [
-        '$scope'
+        '$scope',
+        'Model'
     ];
 
-    function controller($scope) {
+    function controller($scope, Model) {
         var vm = this;
+        vm.docs = [];
+
+        Model('https://housemt.couchappy.com/', '_users').all({
+            include_docs: true,
+            startkey: '_design/'
+        }).then(function(data) {
+            vm.docs = data;
+        })
 
     }
 

@@ -5,7 +5,8 @@
 (function () {
     angular
         .module('editor', [
-            'ui.router'
+            'ui.router',
+            'pouchdb-model'
         ])
         .config(config);
 

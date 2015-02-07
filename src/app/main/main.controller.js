@@ -16,8 +16,9 @@
 
         vm.setup = setup;
 
-
         function setup(url, username, password) {
+            url = url + '/_users';
+
             db.setup(url, username, password).then(function() {
                 $state.go('editor');
             })
