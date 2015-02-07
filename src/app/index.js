@@ -5,6 +5,7 @@
         .module('designdocEditor', [
             //Routes
             'main',
+            'editor',
 
             //Plugins
             'authorization',
@@ -15,6 +16,8 @@
             'ui.router',
             'ui.bootstrap'
         ])
+
+        // Config
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
         });

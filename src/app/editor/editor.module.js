@@ -3,12 +3,9 @@
  */
 
 (function () {
-    'use strict';
-
     angular
-        .module('main', [
-            'ui.router',
-            'db'
+        .module('editor', [
+            'ui.router'
         ])
         .config(config);
 
@@ -18,12 +15,13 @@
 
     function config($stateProvider) {
 
-        $stateProvider.state('home', {
-            url: '/',
-            templateUrl: 'app/main/main.html',
-            controller: 'MainCtrl',
+        $stateProvider.state('editor', {
+            url: '/editor',
+            templateUrl: 'app/editor/editor.html',
+            controller: 'EditorCtrl',
             controllerAs: 'vm'
         });
     }
+
 
 })();

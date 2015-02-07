@@ -18,42 +18,16 @@
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
             <ul class="nav navbar-nav">
-                <li access-level="public" ui-sref-active-eq="active">
-                    <a href ui-sref="home">
-                        <i class="fa fa-home"></i>
-                        Home
-                    </a>
-                </li>
-
-                <li access-level="public" ui-sref-active-eq="active">
-                    <a href ui-sref="docs">
+                <li access-level="user" ui-sref-active-eq="active">
+                    <a href ui-sref="editor">
                         <i class="fa fa-info-circle"></i>
-                        Edit design documents?
+                        Editor
                     </a>
                 </li>
+
 
                 <li access-level="user" ui-sref-active-eq="active">
-                    <a href ui-sref="admin">
-                        <i class="fa fa-book"></i>
-                        Admin
-                    </a>
-                </li>
-
-                <li access-level="user" ui-sref-active-eq="active">
-                    <a href ui-sref="user">
-                        <i class="fa fa-user"></i>
-                        Profile
-                    </a>
-                </li>
-
-                <li access-level="anon" ui-sref-active-eq="active">
-                    <a href ui-sref="login">
-                        Log in
-                    </a>
-                </li>
-
-                <li access-level="user" ui-sref-active-eq="active">
-                    <a href ui-sref="logout" ng-click="logout()">
+                    <a href ng-click="logout()">
                         Log out
                     </a>
                 </li>

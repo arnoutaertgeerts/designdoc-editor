@@ -7,11 +7,17 @@
 
     Controller.$inject = [
         '$scope',
+        '$state',
         'Auth'
     ];
 
-    function Controller($scope, Auth) {
-        $scope.logout = Auth.logout;
+    function Controller($scope, $state, Auth) {
+        $scope.logout = function() {
+            Auth.logout().then(function() {
+                $state.go('home');
+            });
+        };
+
         $scope.user = Auth.user;
     }
 
